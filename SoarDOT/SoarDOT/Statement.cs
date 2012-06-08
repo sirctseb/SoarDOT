@@ -7,5 +7,9 @@ namespace SoarDOT
 {
 	public class Statement : IRenderable
 	{
+		public string Render()
+		{
+			return null;
+		}
 	}
 }
