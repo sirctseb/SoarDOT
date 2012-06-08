@@ -40,10 +40,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AttributeList.cs" />
+    <Compile Include="AttributeStatement.cs" />
+    <Compile Include="EdgeStatement.cs" />
     <Compile Include="Graph.cs" />
+    <Compile Include="GraphAttribute.cs" />
     <Compile Include="IRenderable.cs" />
+    <Compile Include="NodeStatement.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Statement.cs" />
+    <Compile Include="Subgraph.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

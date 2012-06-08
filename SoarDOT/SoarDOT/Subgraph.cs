@@ -8,7 +8,16 @@ namespace SoarDOT
 	// not really a Graph because it doesn't have (use) an EGraphType
 	public class Subgraph : Graph
 	{
-		public string Render()
+		// arbitrary type because it's not used anyway
+		public Subgraph() : base(EGraphType.GT_Digraph)
+		{
+		}
+		public Subgraph(string id)
+			: base(EGraphType.GT_Digraph, id)
+		{
+		}
+
+		public override string Render()
 		{
 			StringBuilder definition = new StringBuilder();
 

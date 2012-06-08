@@ -5,10 +5,10 @@ using System.Text;
 
 namespace SoarDOT
 {
-	public class EdgeStatement : IRenderable
+	public class EdgeStatement : Statement
 	{
 		public class IDMissingException : Exception {
-			public string Message {
+			public override string Message {
 				get { return "ID for node or subgraph missing"; }
 			}
 		}
@@ -63,7 +63,7 @@ namespace SoarDOT
 
 		public AttributeList attributes = new AttributeList();
 
-		public string Render()
+		public override string Render()
 		{
 			StringBuilder definition = new StringBuilder();
 

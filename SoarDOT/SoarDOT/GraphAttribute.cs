@@ -14,7 +14,7 @@ namespace SoarDOT
 			ID = id;
 		}
 
-		public string Render()
+		public virtual string Render()
 		{
 			return ID;
 		}
@@ -30,7 +30,7 @@ namespace SoarDOT
 			value = val;
 		}
 
-		public string Render()
+		public override string Render()
 		{
 			return ID + "=" + value;
 		}
@@ -46,7 +46,7 @@ namespace SoarDOT
 			value = val;
 		}
 
-		public string Render()
+		public override string Render()
 		{
 			return ID + "=" + value;
 		}
@@ -62,7 +62,7 @@ namespace SoarDOT
 			value = val;
 		}
 
-		public string Render()
+		public override string Render()
 		{
 			return ID + "=" + value;
 		}

@@ -10,7 +10,7 @@ namespace SoarDOT
 		// node id in the language is complicated enough to have its own class
 		public class NodeID : IRenderable
 		{
-			enum ECompassPt
+			public enum ECompassPt
 			{
 				N, NE, E, SE, S, SW, W, NW, C, _, None
 			}
@@ -89,7 +89,7 @@ namespace SoarDOT
 		}
 
 		// render
-		public string Render()
+		public override string Render()
 		{
 			StringBuilder definition = new StringBuilder();
 

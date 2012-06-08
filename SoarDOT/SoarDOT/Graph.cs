@@ -23,6 +23,16 @@ namespace SoarDOT
 		// the statements contained in the graph definition
 		public List<Statement> statements = new List<Statement>();
 
+		public Graph(EGraphType gt)
+		{
+			graphType = gt;
+		}
+		public Graph(EGraphType gt, string id)
+		{
+			graphType = gt;
+			ID = id;
+		}
+
 		// add a statement to the list
 		void AddStatement(Statement statement)
 		{
@@ -30,7 +40,7 @@ namespace SoarDOT
 		}
 
 		// render the definition to a DOT language string
-		public string Render()
+		public virtual string Render()
 		{
 			StringBuilder definition = new StringBuilder();
 			// add the type declaration

@@ -34,7 +34,7 @@ namespace SoarDOT
 		}
 
 		// render to a string
-		public string Render()
+		public override string Render()
 		{
 			StringBuilder definition = new StringBuilder();
 

@@ -7,6 +7,6 @@ namespace SoarDOT
 {
 	public interface IRenderable
 	{
-		public string Render();
+		string Render();
 	}
 }
