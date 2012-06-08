@@ -50,6 +50,9 @@ namespace SoarDOT
 				definition.Append(attribute.Render()).Append(", ");
 			}
 
+			// add closing square bracket
+			definition.Append(" ]");
+
 			return definition.ToString();
 		}
 
