@@ -21,7 +21,7 @@ namespace SoarDOT
 		public string ID;
 
 		// the statements contained in the graph definition
-		List<Statement> statements = new List<Statement>();
+		public List<Statement> statements = new List<Statement>();
 
 		// add a statement to the list
 		void AddStatement(Statement statement)
