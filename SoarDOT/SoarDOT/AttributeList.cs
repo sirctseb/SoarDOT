@@ -19,6 +19,13 @@ namespace SoarDOT
 		// render to string
 		public string Render()
 		{
+			// return empty string if no attributes
+			// this simplifies things for callers, who can render on an empty list
+			if (attributes.Count == 0)
+			{
+				return "";
+			}
+
 			StringBuilder definition = new StringBuilder();
 
 			// add opening square bracket
