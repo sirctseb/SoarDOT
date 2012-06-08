@@ -24,7 +24,8 @@ namespace SoarDOT
 		public EObjectType objectType;
 
 		// the list of attributes
-		public List<GraphAttribute> attributes = new List<GraphAttribute>();
+		//public List<GraphAttribute> attributes = new List<GraphAttribute>();
+		AttributeList attributes = new AttributeList();
 
 		// add an attribute
 		public void AddAttribute(GraphAttribute attribute)
@@ -40,18 +41,8 @@ namespace SoarDOT
 			// add type declaration
 			definition.Append(typeLabels[objectType]);
 
-			// add opening square bracket
-			definition.Append("[ ");
-
-			// add attributes
-			foreach (GraphAttribute attribute in attributes)
-			{
-				// TODO comma not on last attribute?
-				definition.Append(attribute.Render()).Append(", ");
-			}
-
-			// add closing square bracket
-			definition.Append(" ]");
+			// render attribute list
+			definition.Append(attributes.Render());
 
 			return definition.ToString();
 		}
