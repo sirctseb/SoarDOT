@@ -15,14 +15,21 @@ namespace TestConsoleApp
 		public static void Test1() {
 			Graph graph = new Graph(Graph.EGraphType.GT_Digraph, "hellograph");
 			// add edge
-			EdgeStatement edgeStatement = new EdgeStatement();
+			/*EdgeStatement edgeStatement = new EdgeStatement();
 			edgeStatement.nodeID = new NodeStatement.NodeID("A");
 			edgeStatement.rhs = new EdgeStatement.EdgeRHS();
 			edgeStatement.rhs.nodeID = new NodeStatement.NodeID("B");
-			graph.statements.Add(edgeStatement);
+			graph.statements.Add(edgeStatement);*/
+			graph.statements.Add(EdgeStatement.EdgeBetweenNodes("A", "B"));
+
+			string result = graph.Render();
 
 			// display result
-			Console.Write(graph.Render());
+			Console.Write(result);
+
+			System.IO.StreamWriter writer = new System.IO.StreamWriter("graph.txt");
+			writer.Write(result);
+			writer.Close();
 
 			Console.ReadKey();
 		}
