@@ -1,0 +1,3 @@
+[submodule "SoarDOT/SMLExtension"]
+	path = SoarDOT/SMLExtension
+	url = git://github.com/sirctseb/SMLExtension.git
