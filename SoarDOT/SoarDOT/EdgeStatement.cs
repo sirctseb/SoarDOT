@@ -63,6 +63,24 @@ namespace SoarDOT
 
 		public AttributeList attributes = new AttributeList();
 
+		// EdgeStatement builders
+		public static EdgeStatement EdgeBetweenNodes(string from, string to)
+		{
+			EdgeStatement edge = new EdgeStatement();
+			edge.nodeID = new NodeStatement.NodeID(from);
+			edge.rhs = new EdgeRHS();
+			edge.rhs.nodeID = new NodeStatement.NodeID(to);
+			return edge;
+		}
+		public static EdgeStatement EdgeBetweenNodes(NodeStatement.NodeID from, NodeStatement.NodeID to)
+		{
+			EdgeStatement edge = new EdgeStatement();
+			edge.nodeID = from;
+			edge.rhs = new EdgeRHS();
+			edge.rhs.nodeID = to;
+			return edge;
+		}
+
 		public override string Render()
 		{
 			StringBuilder definition = new StringBuilder();
