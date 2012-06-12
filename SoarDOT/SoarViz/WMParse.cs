@@ -37,7 +37,7 @@ namespace SoarViz
 				if (IsIdentifier())
 				{
 					EdgeStatement statement = EdgeStatement.EdgeBetweenNodes(ID, value);
-					statement.attributes.Add(new StringAttribute("label", attribute));
+					statement.attributes.Add(new StringAttribute("label", attribute.Replace("-", "_")));
 					statements.Add(statement);
 				}
 				else
@@ -46,11 +46,11 @@ namespace SoarViz
 					string newID = getNewID();
 					// make edge statement
 					EdgeStatement statement = EdgeStatement.EdgeBetweenNodes(ID, newID);
-					statement.attributes.Add(new StringAttribute("label", attribute));
+					statement.attributes.Add(new StringAttribute("label", attribute.Replace("-", "_")));
 					statements.Add(statement);
 					// add a node attribute statement to label the child
 					NodeStatement nodeStatement = new NodeStatement(newID);
-					nodeStatement.attributes.Add(new StringAttribute("label", value));
+					nodeStatement.attributes.Add(new StringAttribute("label", value.Replace("-", "_")));
 					statements.Add(nodeStatement);
 				}
 				return statements;
