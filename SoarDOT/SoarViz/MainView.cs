@@ -18,8 +18,6 @@ namespace SoarViz
 		public MainView()
 		{
 			InitializeComponent();
-			// set drop-down data source
-			//AgentList.DataSource = agentNames;
 		}
 
 		private void ConnectButton_Click(object sender, EventArgs e)
@@ -41,11 +39,13 @@ namespace SoarViz
 				agentNames.Add(kernel.GetAgentByIndex(i).GetAgentName());
 				// TODO this should be able to read from agentNames but it's not
 			}
+			// set drop-down data source
+			AgentList.DataSource = agentNames;
 			// select first agent if it exists
 			if (kernel.GetNumberAgents() > 0)
 			{
 				// TODO I don't we have to set agent here because SelectedIndexChanged will fire
-				agent = kernel.GetAgentByIndex(0);
+				//agent = kernel.GetAgentByIndex(0);
 				AgentList.SelectedIndex = 0;
 			}
 
