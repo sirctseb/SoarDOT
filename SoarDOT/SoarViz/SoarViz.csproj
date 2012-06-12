@@ -85,6 +85,10 @@
       <Project>{2F17A010-320F-45DD-8828-41DBD6ED108F}</Project>
       <Name>SMLExtension</Name>
     </ProjectReference>
+    <ProjectReference Include="..\SoarDOT\SoarDOT.csproj">
+      <Project>{CCFAB035-4823-4A23-B558-5CEAFA698200}</Project>
+      <Name>SoarDOT</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

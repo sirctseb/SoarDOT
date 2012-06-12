@@ -70,7 +70,20 @@ namespace SoarViz
 			// get text from soar
 			string output = kernel.ExecuteCommandLine(@"print <s> --depth 4", agent.GetAgentName());
 			TextView.Text = output;
-			WMParse.ParseWM(output);
+			// parse into wme structures
+			IEnumerable<WMParse.WME> wmes = WMParse.ParseWM(output);
+			// construct graph statements from those
+			SoarDOT.Graph graph = new SoarDOT.Graph(SoarDOT.Graph.EGraphType.GT_Digraph);
+			foreach (WMParse.WME wme in wmes)
+			{
+				foreach(SoarDOT.Statement statement in wme.GetStatement()) {
+					graph.statements.Add(statement);
+				}
+			}
+			// render graph to text
+			string dot = graph.Render();
+			// put in text box
+			TextView.Text = dot;
 		}
 	}
 }

@@ -20,8 +20,15 @@ namespace SoarViz
 			public bool IsIdentifier()
 			{
 				// if value matches [A-z][0-9]+ we assume value refers to an object
-				return System.Text.RegularExpressions.Regex.IsMatch(value, "[A-z][0-9]+");
+				//return System.Text.RegularExpressions.Regex.IsMatch(value, @"[A-z][0-9]+");
+				return Regex.Match(value, @"[A-z][0-9]+").Length == value.Length;
 			}
+			// TODO will need to do other preferences
+			public bool IsOperatorAcceptable()
+			{
+				return System.Text.RegularExpressions.Regex.IsMatch(value, @"O[0-9]+ \+");
+			}
+
 			// returns a list of statements because we may need to declare node attribute statments
 			// or other things to describe the WME
 			public IEnumerable<Statement> GetStatement()
@@ -44,6 +51,7 @@ namespace SoarViz
 					// add a node attribute statement to label the child
 					NodeStatement nodeStatement = new NodeStatement(newID);
 					nodeStatement.attributes.Add(new StringAttribute("label", value));
+					statements.Add(nodeStatement);
 				}
 				return statements;
 			}
