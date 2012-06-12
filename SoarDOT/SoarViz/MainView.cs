@@ -64,5 +64,13 @@ namespace SoarViz
 			// show agent info
 			TextView.Text = agent.GetCurrentPhase().ToString();
 		}
+
+		private void ParseButton_Click(object sender, EventArgs e)
+		{
+			// get text from soar
+			string output = kernel.ExecuteCommandLine(@"print <s> --depth 4", agent.GetAgentName());
+			TextView.Text = output;
+			WMParse.ParseWM(output);
+		}
 	}
 }

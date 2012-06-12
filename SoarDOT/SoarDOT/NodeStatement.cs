@@ -77,7 +77,7 @@ namespace SoarDOT
 		public NodeID nodeID;
 		
 		// attributes
-		AttributeList attributes = new AttributeList();
+		public AttributeList attributes = new AttributeList();
 
 		public NodeStatement(string id)
 		{

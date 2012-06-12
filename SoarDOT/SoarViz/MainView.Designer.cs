@@ -31,6 +31,7 @@
 			this.TextView = new System.Windows.Forms.TextBox();
 			this.ConnectButton = new System.Windows.Forms.Button();
 			this.AgentList = new System.Windows.Forms.ComboBox();
+			this.ParseButton = new System.Windows.Forms.Button();
 			this.SuspendLayout();
 			// 
 			// TextView
@@ -60,11 +61,22 @@
 			this.AgentList.TabIndex = 2;
 			this.AgentList.SelectedIndexChanged += new System.EventHandler(this.AgentList_SelectedIndexChanged);
 			// 
+			// ParseButton
+			// 
+			this.ParseButton.Location = new System.Drawing.Point(433, 7);
+			this.ParseButton.Name = "ParseButton";
+			this.ParseButton.Size = new System.Drawing.Size(75, 23);
+			this.ParseButton.TabIndex = 3;
+			this.ParseButton.Text = "Parse";
+			this.ParseButton.UseVisualStyleBackColor = true;
+			this.ParseButton.Click += new System.EventHandler(this.ParseButton_Click);
+			// 
 			// MainView
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(520, 425);
+			this.Controls.Add(this.ParseButton);
 			this.Controls.Add(this.AgentList);
 			this.Controls.Add(this.ConnectButton);
 			this.Controls.Add(this.TextView);
@@ -80,6 +92,7 @@
 		private System.Windows.Forms.TextBox TextView;
 		private System.Windows.Forms.Button ConnectButton;
 		private System.Windows.Forms.ComboBox AgentList;
+		private System.Windows.Forms.Button ParseButton;
 	}
 }
 
