@@ -20,7 +20,6 @@ namespace SoarViz
 			public bool IsIdentifier()
 			{
 				// if value matches [A-z][0-9]+ we assume value refers to an object
-				//return System.Text.RegularExpressions.Regex.IsMatch(value, @"[A-z][0-9]+");
 				return Regex.Match(value, @"[A-z][0-9]+").Length == value.Length;
 			}
 			// TODO will need to do other preferences
@@ -36,6 +35,7 @@ namespace SoarViz
 				List<Statement> statements = new List<Statement>();
 				if (IsIdentifier())
 				{
+					// add an edge statement
 					EdgeStatement statement = EdgeStatement.EdgeBetweenNodes(ID, value);
 					statement.attributes.Add(new StringAttribute("label", attribute.Replace("-", "_")));
 					statements.Add(statement);
@@ -55,6 +55,7 @@ namespace SoarViz
 				}
 				return statements;
 			}
+			// create a unique id for nodes
 			private string getNewID()
 			{
 				return "XX" + newID++;
@@ -69,8 +70,6 @@ namespace SoarViz
 												@"\s*(?<val>[^\s]+(?:\s\+)?)" +	// value
 											@")+" +					// end child group, match multiple
 										@"\))";					// close paren
-		//@"(:(:\s|\n)*\((?<ID>[A-z][0-9]+)(:\s*\^(?<attr>\w|-)+\s*(?<val>[^\s]+(:\s\+)?))+\))";	
-		//Regex wmeprint = new Regex(@"(\s*\(([A-z][0-9]+)(\s*\^(\w+)\s*(\w+))+\)\s*)");
 		static Regex wmeprint = new Regex(wmedeclaration);
 
 		public static IEnumerable<WME> ParseWM(string trace)
@@ -81,20 +80,6 @@ namespace SoarViz
 			MatchCollection matches = wmeprint.Matches(trace);
 			foreach (Match match in matches)
 			{
-				/*foreach (Group group in match.Groups)
-				{
-					string cap;
-					foreach (Capture capture in group.Captures)
-					{
-						int i = capture.Index;
-						cap = capture.Value;
-					}
-					Group IDgroup = match.Groups["ID"];
-					Group AttrGroup = match.Groups["attr"];
-					Group ValGroup = match.Groups["val"];
-				}*/
-
-				// the ID
 				string id = match.Groups["ID"].Value;
 				int i = 0;
 				foreach (Capture capture in match.Groups["attr"].Captures)
